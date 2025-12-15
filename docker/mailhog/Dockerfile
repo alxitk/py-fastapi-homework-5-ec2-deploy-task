@@ -4,7 +4,7 @@ FROM golang:1.24-bookworm
 RUN apt-get update && apt-get install -y wget dos2unix && apt-get clean
 
 
-RUN go install github.com/mailhog/MailHog@v1.0.1
+RUN go install github.com/mailhog/MailHog@latest
 
 
 ENV PATH="/root/go/bin:$PATH"
