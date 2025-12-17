@@ -1,14 +1,10 @@
 FROM golang:1.24-bookworm
 
 # Install necessary dependencies
-RUN apt update && apt install -y  \
-    golang-go \
-    wget \
-    dos2unix \
-    && apt clean
+RUN apt-get update && apt-get install -y wget dos2unix && apt-get clean
 
 # Install MailHog using Go
-RUN go install github.com/mailhog/MailHog@v1.0.1
+RUN go install github.com/mailhog/MailHog@latest
 
 # Add Go's bin directory to the PATH to make MailHog executable globally
 ENV PATH="/root/go/bin:$PATH"
